@@ -1,0 +1,30 @@
+
+div {
+	font-family: 'Antic', sans-serif;
+	}/* Your custom styles */
+
+@media(min-width: 768px) {
+  .field-label-responsive {
+    padding-top: .5rem;
+    text-align: right;
+  }
+}
+
+body { 
+
+ background: url('https://i.imgur.com/ZXffVjs.jpg') no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ 
+}	
+
+.card-header:first-child {
+	color: orange;
+
+}
+
+.alert-warning {
+	background-color: #f1812b;
+}

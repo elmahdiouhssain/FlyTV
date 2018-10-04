@@ -1,0 +1,49 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "__layout__.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<body >
+<div class="my-login-page">
+<section class="h-100">
+<div class="container h-100">
+<div class="row justify-content-md-center h-100">
+<div class="card-wrapper">
+<div class="card fat">
+<div class="card-body">
+<h4 class="card-title">Login</h4>
+<form method="POST">
+<br>
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<br>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="alert alert-{{ messages.0.0 }}" role="alert">
+{% for category, message in messages %}
+{{ message }} </br>
+{% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}	 
+<div class="form-group">
+
+{{ wtf.quick_form(form) }}
+
+<a href="#" class="float-right">
+Forgot Password?
+</a>
+</div>
+<div class="margin-top20 text-center">
+Don't have an account? <a href="{{ url_for('authentication.register') }}">Create One</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

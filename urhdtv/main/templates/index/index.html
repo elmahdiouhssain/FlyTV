@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <div class="view">
+                <img class="d-block w-100" src="{{ url_for('main.static', filename='file/img/caro1.jpg') }}" alt="First slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+                <h3 class="h3-responsive" style="background-color: #fa9315;">Worldwide Channels</h3>
+                <p style="color: black;background-color: white;">
+                  We Offer more than 5000 worldwide channels , also multi country packages [Mr,Fr,Uk,Ar,Nl,Sp,Us,Ps...]
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="view">
+                <img class="d-block w-100" src="{{ url_for('main.static', filename='file/img/caro2.jpg') }}" alt="Second slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+                <h3 class="h3-responsive" style="background-color: #fa9315;">Auto Configuration</h3>
+              <p style="color: black;background-color: white;">
+                  we offer auto configure for your device , [ Smart tv,receiver,Computer,Tvbox... ]
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="view">
+                <img class="d-block w-100" src="{{ url_for('main.static', filename='file/img/caro3.jpg') }}" alt="Third slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+                <h3 class="h3-responsive" style="background-color: #fa9315;">Full access reseller</h3>
+                <p style="color: black;background-color: white;">
+                  We offer control panel (Xtream-codes) for our reseller to manage their clients subscriptions ...
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="divider-new pt-3">
+<center>
+<h2 class="h2-responsive indigo-text mx-4 font-bold wow fadeIn">Why is it so great?</h2>
+</center>
+</div>
+<section class="section feature-box text-center">
+<p class="section-description lead grey-text mb-5 mx-lg-5">We promise our clients to offer the best iptv services in the world,also availablity to testing it before pay, and adding prefer packages.</p>
+<div class="row text-center">
+<div class="col-md-4 mb-r">
+<img src="{{ url_for('main.static', filename='file/img/powerful.png') }}" alt="p1" class="img-thumbnail">
+<h5 class="font-bold mt-3">Powerful</h5>
+<p class="grey-text">Powerful servers and load balancers over Europe.We support MAG, Android, iOS, XBMC/KODI, Enigma, PC, Smart TV and more....
+</p>
+</div>
+<div class="col-md-4 mb-r">
+<img src="{{ url_for('main.static', filename='file/img/support.png') }}" alt="p1" class="img-thumbnail">
+<h5 class="font-bold mt-3">Support</h5>
+<p class="grey-text">We offer full support to our clients 24/7,also we can add any channels you want.</p>
+</div>
+<div class="col-md-4 mb-r">
+<img src="{{ url_for('main.static', filename='file/img/back.png') }}" alt="p1" class="img-thumbnail">
+<h5 class="font-bold mt-3">Relax</h5>
+<p class="grey-text">Money back guaranty ,before limite of the peride after purchase 10 Days</p>
+</div>
+</div>
+</section>
+<div class="container">
+<center>
+<div class="alert alert-warning" role="alert">
+Our Plans 
+</div>
+</center>
+<div class="pricing-5 section-gray">
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+<div class="block block-pricing">
+<div class="table">
+<h6 class="category">Free</h6>
+<img src="{{ url_for('main.static', filename='file/img/free.png') }}" alt="placeholder." class="img-thumbnail">
+<h3 class="block-caption">$00</h3>
+<p class="block-description"> If you wanna try our services before pay, just request here.</p> <a href="{{ url_for('authentication.area') }}" class="btn btn-warning btn-round">Get Free</a> </div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="block block-pricing">
+<div class="table">
+<h6 class="category">Pro</h6>
+<img src="{{ url_for('main.static', filename='file/img/3000.gif') }}" alt="p1" class="img-thumbnail">
+<h3 class="block-caption">$50</h3>
+<p class="block-description"> Watch more than 3000 channels with full support  .</p> <a href="{{ url_for('authentication.area') }}" class="btn btn-warning btn-round">Get Started</a> </div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="block block-pricing block-raised">
+<div class="table table-warning">
+<h6 class="category">Premium</h6>
+<img src="{{ url_for('main.static', filename='file/img/4000.gif') }}" alt="p1" class="img-thumbnail">
+<h3 class="block-caption">$80</h3>
+<p class="block-description"> Watch more than 4000 channels with full support.</p> <a href="{{ url_for('authentication.area') }}" class="btn btn-white btn-round">Get Premium</a> </div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="block block-pricing">
+<div class="table">
+<h6 class="category">Reseller</h6>
+<img src="{{ url_for('main.static', filename='file/img/reseler.png') }}" alt="p1" class="img-thumbnail">
+<h3 class="block-caption">$25</h3>
+<p class="block-description"> We offer controle panel, with 10 subscription test / 24H.</p> <a href="#" class="btn btn-warning btn-round">Get Panel</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="divider-new pt-5">
+<center>
+<h2 class="h2-responsive indigo-text mx-4 font-bold wow fadeIn" data-wow-delay="0.2s">
+<strong>About us</strong>
+</h2>
+</center>
+</div>
+<section id="about" class="text-center wow fadeIn" data-wow-delay="0.2s">
+<p>URHD.TV, The best IPTV services in the world, as one of the biggest teams in the internet.That can offer a huge diversity of popular channels live stream from all around the world.</p>
+<p>Whenever you do something like buy one of our products, watch a show or download an app, information is created. Because we know your privacy is important, we have a Privacy Policy to explain how we collect, use and protect that informations.</p>
+<p>If you have any enquiry just contact us : contact@urhd.tv</p>
+
+</section>
+<br>
+{% endblock content %}

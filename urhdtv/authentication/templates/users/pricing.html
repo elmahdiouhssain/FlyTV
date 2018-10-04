@@ -1,0 +1,237 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="{{ url_for('authentication.static', filename='css/alert.css') }}" rel="stylesheet" media="screen">
+<meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="Description" content="Buy best iptv services and watch live stream channels for free" />
+  <meta name="keywords" lang="us" content="urhd.tv,live stream,urhd blog,buy iptv,iptv,best iptv,urhd iptv">
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="fb" content="urhd.tv" />
+  <meta property="og:site_name" content="www.urhd.tv" />
+  <meta name="robots" content="index, follow"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+{% if title %}
+<title>URHD.TV - {{ title }}</title>
+{% else %}
+<title>URHD.TV</title>
+{% endif %}
+
+<nav class="navbar navbar-dark bg-dark">
+ <!-- Navbar content -->
+<div class="logo"><a href="{{ url_for('main.index') }}"><img src="{{ url_for('authentication.static', filename='img/logo.png') }}" alt="logo"></a></div>
+<li class="nav-item">
+        <a class="nav-link" href="{{ url_for('main.packages') }}"><i class="fas fa-cube"></i> Packages</a>
+      </li>
+</nav>
+<br>
+<div class="container">
+	<center>
+	{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<br>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="alert alert-{{ messages.0.0 }}" role="alert">
+{% for category, message in messages %}
+{{ message }} </br>
+{% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+</center>
+<div class="card">
+<div class="card-body">
+
+<div class="container">
+<div class="row">
+	<center>
+<div class="error-notice">
+<div class="oaerror danger">
+<strong>Notice</strong> -  : Trial request valid only for 24H.
+</div>
+<div class="oaerror info">
+<strong>Notice</strong> -  : If You are interesting to be a reseller just see reseller area.
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="container">
+	<div class="card">
+<div class="card-body">
+<p class="h5">Client infos</p>
+<div class="alert alert-warning" role="alert">
+<h4><i class="fa fa-user"></i> Username : {{ current_user.username }}</h4>
+<br>
+<h4><i class="fas fa-envelope"></i> Email : {{ current_user.email }} </h4>
+<br>
+<h4><i class="fas fa-box"></i> Packages :  </h4>
+</div>
+</div>
+</div>
+<br>
+<p class="h5">Pricing Plans</p>
+<div class="container">
+<div class="card-deck mb-3 text-center">
+<div class="card mb-4 box-shadow">
+<div class="card-header">
+<h4 class="my-0 font-weight-normal">Free</h4>
+</div>
+<div class="card-body">
+
+<h1 class="card-title pricing-card-title">$0 <small class="text-muted">/1Day</small></h1>
+<ul class="list-unstyled mt-3 mb-4">
+<i class="fas fa-tv"></i><li>1800 channels</li>
+<li>No full Support</li>
+</ul>
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+Get Trial
+</button>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+<div class="modal-dialog">
+<div class="modal-content">
+<!-- Modal Header -->
+<div class="modal-header">
+<h4 class="modal-title"><i class="fas fa-tv"></i> Trial Request</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<!-- Modal body -->
+<div class="modal-body">
+<form method="POST"> 
+<div class="container"> 
+<div class="form-group">
+{{ wtf.quick_form(form) }}
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card mb-4 box-shadow">
+<div class="card-header">
+<h4 class="my-0 font-weight-normal">Pro</h4>
+</div>
+<div class="card-body">
+  <div class="card mb-4 text-white bg-dark">
+<h1 class="card-title pricing-card-title">$50 <small class="text-muted">/ yr</small></h1>
+<ul class="list-unstyled mt-3 mb-4">
+<i class="fas fa-tv"></i><li>3000 channels</li>
+<i class="far fa-life-ring"></i><li>Full support</li>
+<i class="fas fa-film"></i><li>50 Vod channels</li>
+<i class="fas fa-check-circle"></i><li>Money Back Garuanté</li>
+</ul>
+<button type="button" class="btn btn-warning">Get started</button>
+</div>
+</div>
+</div>
+<div class="card mb-4 box-shadow">
+<div class="card-header">
+<h4 class="my-0 font-weight-normal">Premiuim</h4>
+</div>
+<div class="card-body">
+  <div class="card mb-4 text-white bg-dark">
+<h1 class="card-title pricing-card-title">$80 <small class="text-muted">/ yr</small></h1>
+<ul class="list-unstyled mt-3 mb-4">
+<i class="fas fa-tv"></i><li>4000 channels</li>
+<i class="far fa-life-ring"></i><li>Full support</li>
+<i class="fas fa-film"></i><li>100 Vod channels</li>
+<i class="fas fa-check-circle"></i><li>Money Back Garuanté</li>
+</ul>
+<button type="button" class="btn btn-warning">Contact us</button>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<div class="card mb-4 bg-dark text-white">
+<img class="card-img" src="{{ url_for('authentication.static', filename='img/reseller.jpg') }}" alt="Card image">
+<div class="card-img-overlay">
+<h5 class="card-title">Reseller Area</h5>
+<p class="card-text">If you are interesting to be a reseller just visite reseller area.</p>
+<a href="#" class="btn btn-dark btn-sm">SOON</a>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card mb-4 bg-dark text-white">
+<img class="card-img" src="{{ url_for('authentication.static', filename='img/support.jpg') }}" alt="Card image">
+<div class="card-img-overlay">
+<h5 class="card-title">Support</h5>
+<p class="card-text">Here you can opent a ticket if you have any enquiry.</p>
+<a href="#" class="btn btn-dark btn-sm">SOON</a>
+</div>
+</div>
+</div>
+</div>
+<p class="h5">New Offers</p>
+<div class="row">
+<div class="col-md-4">
+<div class="card mb-4">
+<img class="card-img-top" src="{{ url_for('authentication.static', filename='img/activation.jpg') }}" alt="Card image cap">
+<div class="card-body">
+<h5 class="card-title">Activation</h5>
+<p class="card-text">Free mac adresse activation of smart iptv app after accepting order.</p>
+<a href="h#" class="btn btn-outline-dark btn-sm">SOON</a>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card mb-4 border-dark">
+<img class="card-img-top" src="{{ url_for('authentication.static', filename='img/more.jpg') }}" alt="Card image cap">
+<div class="card-body">
+<h5 class="card-title">More Channels</h5>
+<p class="card-text">Here you can request any channels, any packages, you prefer.</p>
+<a href="#" class="btn btn-dark btn-sm">SOON</a>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card mb-4 text-white bg-dark">
+
+</div>
+</div>
+</div>
+</div>
+<br>
+<footer class="container">
+<center>
+    <a href="{{ url_for('main.privacy') }}" target="_blank">Privacy policy</a>
+
+    <a href="{{ url_for('main.refund') }}" target="_blank">Refund Policy</a>
+
+    <a href="{{ url_for('main.terms') }}" target="_blank">Terms of service</a>
+<p>Copyright © URHD.TV [ Beta v ] 2017-2018</p>
+</footer>
+
+{% endblock %}
+    <!-- Optional JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Antic" rel="stylesheet">
+  <link href="{{ url_for('main.static', filename='file/css/pricing.css') }}" rel="stylesheet" media="screen">
+  <link href="{{ url_for('main.static', filename='file/css/style.css') }}" rel="stylesheet" media="screen">
+  <link href="{{ url_for('main.static', filename='file/css/register.css') }}" rel="stylesheet" media="screen">
+  <link rel="shortcut icon" href="{{ url_for('main.static', filename='file/img/favicon.ico') }}">
+     <!-- Meta Tags -->
+  <meta name="Description" content="Buy best iptv services and watch live stream channels for free" />
+  <meta name="keywords" lang="us" content="urhd.tv,live stream,urhd blog,buy iptv,iptv,best iptv,urhd iptv">
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="fb" content="urhd.tv" />
+  <meta property="og:site_name" content="www.urhd.tv" />
+  <meta name="robots" content="index, follow"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+    {% if title %}
+        <title>URHD.TV - {{ title }}</title>
+    {% else %}
+        <title>URHD.TV</title>
+    {% endif %}
+ </head>
+ <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="logo"><a href="{{ url_for('main.index') }}"><img src="{{ url_for('authentication.static', filename='img/logo.png') }}" alt="logo"></a></div>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('blog.index') }}"><i class="fas fa-newspaper"></i> News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('livestream.index') }}"><i class="fas fa-coffee"></i> Livestream</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('main.apps') }}"><i class="fas fa-cloud-download-alt"></i> Application</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('authentication.login') }}"><i class="fas fa-sign-in-alt"></i> Clients Area</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if current_user.is_authenticated %}
+      <div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="{{ url_for('authentication.area') }}" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user"></i>  Hi, {{ current_user.username }}!
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Profile</a>
+    <a class="dropdown-item" href="{{ url_for('authentication.logout') }}">Logout</a>
+  </div>
+</div>
+
+      {% endif %}
+</nav>
+<main>
+<div class="container">
+      {% block content %}{% endblock content %}
+</div>
+
+<br>
+<footer class="container">
+<center>
+    <a href="{{ url_for('main.privacy') }}" target="_blank">Privacy policy</a>
+
+    <a href="{{ url_for('main.refund') }}" target="_blank">Refund Policy</a>
+
+    <a href="{{ url_for('main.terms') }}" target="_blank">Terms of service</a>
+<p>Copyright © URHD.TV [ Beta v ] 2017-2018</p>
+</footer>
+    <!-- Optional JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
